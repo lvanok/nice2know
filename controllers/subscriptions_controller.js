@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Subscription = require('../models/subscription.js');
-var User = require('../model/User.js');
+var User = require('../models/User.js');
 
 
 router.get('/', function(req,res) {

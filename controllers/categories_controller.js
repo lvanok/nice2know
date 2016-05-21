@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Category = require('../models/category.js');
-var User = require('../model/User.js');
+var User = require('../models/User.js');
 var session = require('express-session');
 
 
