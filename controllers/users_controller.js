@@ -37,7 +37,7 @@ router.get('/users/sign-out', function(req,res) {
 });
 
 router.get('/', function(req,res) {
-    res.redirect('/facts');
+    res.redirect('/home');
 });
 
 router.get('/home', function(req,res) {
