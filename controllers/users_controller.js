@@ -93,7 +93,7 @@ router.post('/users/login', function(req, res) {
           req.session.user_email = user.email;
           req.session.username = user.username;
 
-          res.redirect('/facts');
+          res.redirect('/home');
         }
     });
   });

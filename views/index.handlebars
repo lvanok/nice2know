@@ -279,15 +279,31 @@
             <!-- <button class="modalBtn" id="subscribeBtn" type="button" name="subscribe" value="{{this}}">+Subscribe</button>
             <button class="modalBtn" id="sendNowBtn" type="button" name="sendTextNow" value="{{this}}">Send Text Now</button> -->
 
-            <!-- form buttons with routes -->
-            <form action="subscriptions/update/{{this.id}}?_method=PUT" method="POST">
-              <input type="hidden" name="subscribed" value="true">
-              <button type="submit" class="modalBtn">+Subscribe</button>
-            </form>
-            <form action="user_facts/create/{{this.id}}" method="POST">
-              <button type="submit" class="modalBtn">Send Text Now</button>
-            </form>
-            <!-- <img src="//placehold.it/1200x700/222?text=..." id="galleryImage" class="img-responsive" /> -->
+            {{#if logged_in}}
+
+              <!-- form buttons with routes -->
+              <form action="/subscriptions/create" method="POST">
+                <input type="hidden" name="subscribed" value="true">
+                <button type="submit" class="modalBtn">+Subscribe</button>
+              </form>
+
+              <form action="/subscriptions/destroy/{{this.id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="subscribed" value="false">
+                <button type="submit" class="modalBtn">-Unsubscribe</button>
+              </form>
+
+              <form action="/user_facts/create/{{this.id}}" method="POST">
+                <button type="submit" class="modalBtn">Send Text Now</button>
+              </form>
+
+            {{/if}}
+
+            {{#unless logged_in}}
+              <p>
+                You must login to add subscriptions.
+              </p>
+            {{/unless}}
+
             <p>
                 <br/>
                 <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">Close <i class="ion-android-close"></i></button>
