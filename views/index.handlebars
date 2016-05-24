@@ -40,18 +40,20 @@
         </div>
         <div class="container-fluid">
             <div class="row no-gutter">
-                <div class="col-lg-4 media wow fadeIn">
-                    <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/history">
-                        <img src="assets/images/history.png" alt="Image 1">
-                        <div class="gallery-box-caption">
-                            <div class="gallery-box-content">
-                                <div>
-                                    <i class="icon-md glyphicon glyphicon-plus"></i>
+                {{#each category}}
+                    <div class="col-lg-4 media wow fadeIn">
+                        <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/{{this.dataValues.category_name}}">
+                            <img src="assets/images/{{this.dataValues.category_name}}.png" alt="Image 1">
+                            <div class="gallery-box-caption">
+                                <div class="gallery-box-content">
+                                    <div>
+                                        <i class="icon-md glyphicon glyphicon-plus"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                {{/each}}
                 <div class="col-lg-4 media wow fadeIn">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/sports">
                         <img src="assets/images/sports.png" class="img-responsive" alt="Image 2">
@@ -113,7 +115,7 @@
                     </a>
                 </div>
             </div>
-        </div> 
+        </div>
           <div class="col-lg-4  media wow fadeInRight">
                     <a href="#galleryModal" class="gallery-box" data-toggle="modal" data-src="/relations.png">
                         <img src="/assets/images/relations.png" class="img-responsive" alt="Image 4">
@@ -319,19 +321,18 @@
               Category description.
             </p>
 
-            <!-- basic buttons -->
-            <!-- <button class="modalBtn" id="subscribeBtn" type="button" name="subscribe" value="{{this}}">+Subscribe</button>
-            <button class="modalBtn" id="sendNowBtn" type="button" name="sendTextNow" value="{{this}}">Send Text Now</button> -->
-
             <!-- form buttons with routes -->
             <form action="subscriptions/update/{{this.id}}?_method=PUT" method="POST">
               <input type="hidden" name="subscribed" value="true">
-              <button type="submit" class="modalBtn">+Subscribe</button>
+              <button type="submit" class="modalBtn" id="subscribeBtn">+Subscribe</button>
+            </form>
+            <form action="/subscriptions/destroy/{{this.id}}?_method=DELETE" method="POST">
+              <input type="hidden" name="subscribed" value="false">
+              <button type="button" class="modalBtn" id="unsubBtn">-Unsubscribe</button>
             </form>
             <form action="user_facts/create/{{this.id}}" method="POST">
-              <button type="submit" class="modalBtn">Send Text Now</button>
+              <button type="submit" class="modalBtn" id="sendNowBtn">Send Text Now</button>
             </form>
-            <!-- <img src="//placehold.it/1200x700/222?text=..." id="galleryImage" class="img-responsive" /> -->
             <p>
                 <br/>
                 <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">Close <i class="ion-android-close"></i></button>

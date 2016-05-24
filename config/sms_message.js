@@ -3,10 +3,10 @@ var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILI
 var texter;
 
 //this function is executed when a response is received from Twilio
-client.sendMessage(texter, function(err, responseData) { 
-    if (!err) { 
-        console.log(responseData.from); 
-        console.log(responseData.body); 
+client.sendMessage(texter, function(err, responseData) {
+    if (!err) {
+        console.log(responseData.from);
+        console.log(responseData.body);
     }
 });
 
@@ -15,15 +15,15 @@ module.exports = client;
 // client.sendMessage({
 
 //     to: to, //'+' + countrycode + phone
-//     from: passwords.twilioNumber, 
-//     body: 'Nice 2 Know Test Text Message.' 
+//     from: passwords.twilioNumber,
+//     body: 'Nice 2 Know Test Text Message.'
 
 // }, function(err, responseData) { //this function is executed when a response is received from Twilio
 
-//     if (!err) { 
+//     if (!err) {
 
-//         console.log(responseData.from); 
-//         console.log(responseData.body); 
+//         console.log(responseData.from);
+//         console.log(responseData.body);
 
 //     }
 // });
@@ -38,7 +38,7 @@ module.exports = client;
 // texter.sendMessage({
 
 //     to: req.session.phone, //'+' + countrycode + phone
-//     from: passwords.twilioNumber, 
-//     body: result[randomNum] 
+//     from: passwords.twilioNumber,
+//     body: result[randomNum]
 
 // })

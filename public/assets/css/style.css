@@ -535,6 +535,8 @@ img::-moz-selection {
 
 .modalBtn {
     color: #000;
+    float: left;
+    margin: 5px;
 }
 
 #registration{

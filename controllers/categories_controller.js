@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Category = require('../models/category.js');
-var User = require('../model/User.js');
+var User = require('../models/User.js');
 var session = require('express-session');
 
 
@@ -13,7 +13,7 @@ router.get('/categories', function(req,res) {
 
     Category.findAll({}).then(function(result){
         var hbsObject = {category : result}
-            res.render('index', hbsObject);
+        res.render('index', hbsObject);
     })
 });
 
@@ -25,7 +25,7 @@ router.post('/categories/create', function(req,res) {
 
     });
 });
-//select * from facts where category_id = chosen 
+//select * from facts where category_id = chosen
 router.put('/categories/send/:id', function(req,res) {
     Fact.findAll({
         {

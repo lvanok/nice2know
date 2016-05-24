@@ -75,7 +75,7 @@ router.post('/users/login', function(req, res) {
 
     bcrypt.compare(req.body.password, user.password_hash, function(err, result) {
         if (result == true){
-          
+
           //make a session, bro
           req.session.logged_in = true;
           req.session.user_id = user.id;
@@ -100,9 +100,9 @@ router.post('/categories/fact/:id', function(req, res) {
 
       texter.sendMessage({
 
-          to: "+" + req.session.countrycode + req.session.phone, 
-          from: passwords.twilioNumber, 
-          body: "hi"               //result[randomNum] 
+          to: "+" + req.session.countrycode + req.session.phone,
+          from: passwords.twilioNumber,
+          body: "hi"               //result[randomNum]
 
       })
     })
