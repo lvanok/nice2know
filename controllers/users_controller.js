@@ -8,6 +8,11 @@ var client = require('../config/sms_message'); //require twilio client object
 var passwords = require('../config/passwords'); //require twilio passwords
 var session = require('express-session');
 
+//redirect root route to home route
+router.get('/', function(req,res) {
+    res.redirect('/home');
+});
+
 //render user sign up page/form
 router.get('/users/new', function(req,res) {
   res.render('users/new');

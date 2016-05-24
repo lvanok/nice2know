@@ -523,15 +523,10 @@ img::-moz-selection {
     background: 0 0;
 }
 
-
-#one {
-    margin-left: 150px;
-}
 #one img{
     width:200px;
     height: 200px;
 }
-
 
 .modalBtn {
     color: #000;
