@@ -13,7 +13,7 @@ router.get('/categories', function(req,res) {
 
     Category.findAll({}).then(function(result){
         var hbsObject = {category : result}
-            res.render('index', hbsObject);
+        res.render('index', hbsObject);
     })
 });
 

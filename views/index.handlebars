@@ -29,44 +29,64 @@
         </video>
 
     </header>
-   <section id="one" class="no-padding">
+
+    <section id="one" class="no-padding">
         <div class="container-fluid">
             <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#historyModal" class="gallery-box" data-toggle="modal" data-src="/history">
-                        <img src="assets/images/history.png" alt="Image 1">
-                        <!-- <div class="gallery-box-caption">
+                {{#each category}}
+                <div class="col-lg-4 col-sm-6 media wow fadeIn" >
+                    <a href="#{{this.dataValues.category_name}}Modal" class="gallery-box" data-toggle="modal" data-src="/history">
+                        <h1>{{this.dataValues.category_name}}</h1>
+                        <img src="assets/images/{{this.dataValues.category_name}}.png" alt="Image 1">
+                        <div class="gallery-box-caption">
                             <div class="gallery-box-content">
                                 <div>
                                     <i class="icon-md glyphicon glyphicon-plus"></i>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                {{/each}}
+                <div class="col-lg-4 col-sm-6 media wow fadeIn">
                     <a href="#sportsModal" class="gallery-box" data-toggle="modal" data-src="/sports">
                         <img src="assets/images/sports.png" class="img-responsive" alt="Image 2">
+                        <!-- <h2>Sports</h2> -->
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 media wow fadeIn">
                     <a href="#techModal" class="gallery-box" data-toggle="modal" data-src="/tech">
                         <img src="assets/images/technology.png" alt="Image 3">
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 media wow fadeInLeft">
                     <a href="#scienceModal" class="gallery-box" data-toggle="modal" data-src="/science">
                         <img src="/assets/images/science.png" class="img-responsive" alt="Image 4">
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 media wow fadeInLeft">
                     <a href="#societyModal" class="gallery-box" data-toggle="modal" data-src="/society">
                         <img src="assets/images/society.png" class="img-responsive" alt="Image 5">
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 media wow fadeInLeft">
                     <a href="#funModal" class="gallery-box" data-toggle="modal" data-src="/fun">
                         <img src="assets/images/fun.png" class="img-responsive" alt="Image 6">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 media wow fadeInRight">
+                    <a href="#relationshipsModal" class="gallery-box" data-toggle="modal" data-src="/relationships">
+                        <img src="assets/images/relations.png" class="img-responsive" alt="Image 7">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 media wow fadeInRight">
+                    <a href="#motivationModal" class="gallery-box" data-toggle="modal" data-src="/motivation">
+                        <img src="assets/images/motivation.png" class="img-responsive" alt="Image 8">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 media wow fadeInRight">
+                    <a href="#fitnessModal" class="gallery-box" data-toggle="modal" data-src="/fitness">
+                        <img src="assets/images/fitness.png" class="img-responsive" alt="Image 9">
                     </a>
                 </div>
             </div>
@@ -443,6 +463,129 @@
             <h2>Fun and Leisure</h2>
             <p>
               Fun and Leisure description.
+            </p>
+
+            {{#if logged_in}}
+
+              <form action="/subscriptions/create" method="POST">
+                <input type="hidden" name="subscribed" value="true">
+                <button type="button" class="modalBtn" id="subscribeBtn">+Subscribe</button>
+              </form>
+
+              <form action="/subscriptions/destroy/{{this.id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="subscribed" value="false">
+                <button type="button" class="modalBtn" id="unsubBtn">-Unsubscribe</button>
+              </form>
+
+              <form action="/user_facts/create/{{this.id}}" method="POST">
+                <button type="button" class="modalBtn" id="sendNowBtn">Send Text Now</button>
+              </form>
+            {{/if}}
+
+            {{#unless logged_in}}
+              <p>
+                You must login to add subscriptions.
+              </p>
+            {{/unless}}
+
+            <p>
+                <br/>
+                <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">Close <i class="ion-android-close"></i></button>
+            </p>
+          </div>
+        </div>
+        </div>
+    </div>
+
+    <div id="relationshipsModal" class="modal fade galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h2>Relationships</h2>
+            <p>
+              Relationships description.
+            </p>
+
+            {{#if logged_in}}
+
+              <form action="/subscriptions/create" method="POST">
+                <input type="hidden" name="subscribed" value="true">
+                <button type="button" class="modalBtn" id="subscribeBtn">+Subscribe</button>
+              </form>
+
+              <form action="/subscriptions/destroy/{{this.id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="subscribed" value="false">
+                <button type="button" class="modalBtn" id="unsubBtn">-Unsubscribe</button>
+              </form>
+
+              <form action="/user_facts/create/{{this.id}}" method="POST">
+                <button type="button" class="modalBtn" id="sendNowBtn">Send Text Now</button>
+              </form>
+            {{/if}}
+
+            {{#unless logged_in}}
+              <p>
+                You must login to add subscriptions.
+              </p>
+            {{/unless}}
+
+            <p>
+                <br/>
+                <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">Close <i class="ion-android-close"></i></button>
+            </p>
+          </div>
+        </div>
+        </div>
+    </div>
+
+    <div id="motivationModal" class="modal fade galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h2>Motivation</h2>
+            <p>
+              Motivation description.
+            </p>
+
+            {{#if logged_in}}
+
+              <form action="/subscriptions/create" method="POST">
+                <input type="hidden" name="subscribed" value="true">
+                <button type="button" class="modalBtn" id="subscribeBtn">+Subscribe</button>
+              </form>
+
+              <form action="/subscriptions/destroy/{{this.id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="subscribed" value="false">
+                <button type="button" class="modalBtn" id="unsubBtn">-Unsubscribe</button>
+              </form>
+
+              <form action="/user_facts/create/{{this.id}}" method="POST">
+                <button type="button" class="modalBtn" id="sendNowBtn">Send Text Now</button>
+              </form>
+            {{/if}}
+
+            {{#unless logged_in}}
+              <p>
+                You must login to add subscriptions.
+              </p>
+            {{/unless}}
+
+            <p>
+                <br/>
+                <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">Close <i class="ion-android-close"></i></button>
+            </p>
+          </div>
+        </div>
+        </div>
+    </div>
+
+    <div id="fitnessModal" class="modal fade galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h2>Fitness</h2>
+            <p>
+              Fitness description.
             </p>
 
             {{#if logged_in}}
