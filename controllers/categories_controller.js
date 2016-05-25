@@ -5,10 +5,6 @@ var User = require('../models/User.js');
 var session = require('express-session');
 
 
-router.get('/', function(req,res) {
-    res.redirect('/categories')
-});
-
 router.get('/categories', function(req,res) {
 
     Category.findAll({}).then(function(result){
@@ -20,18 +16,18 @@ router.get('/categories', function(req,res) {
 router.post('/categories/create', function(req,res) {
     Category.create({
         category: req.body.name,
-            topic: req.body.topic }).then(function(result){
-                res.redirect('/categories');
+        topic: req.body.topic }).then(function(result){
+            res.redirect('/categories');
 
     });
 });
-//select * from facts where category_id = chosen
+
 router.put('/categories/send/:id', function(req,res) {
     Fact.findAll({
         {
             where: { category_id : req.body.id }
         }
-        devoured: req.body.topic
+        topic: req.body.topic
   },
   {
         where: { id : req.params.id }
