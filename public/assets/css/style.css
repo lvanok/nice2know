@@ -537,6 +537,8 @@ img::-moz-selection {
 
 .modalBtn {
     color: #000;
+    float: left;
+    margin: 5px;
 }
 
 
@@ -545,7 +547,7 @@ img::-moz-selection {
         font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
         width:100%;
         height: 100%;
-        
+
 
 }
      input{
@@ -576,38 +578,32 @@ img::-moz-selection {
 
 #one{
     color: skyblue !important;
-    
+
 }
 
-#one  hr{
+#one  hr {
         margin-left: 230px;
-    }
+}
+
 #one .margin-top-0 {
     margin-top: 0;
     margin-left: 200px;
-
 }
 
-}
-
-#last{
+#last {
     color:#8b27b0;
-    }
-      .margin-top-0 {
+}
+
+.margin-top-0 {
     margin-top: 0;
     margin-left:-10px;
     width:100%;
-
 }
 
-
-#last button{
-            margin-left:-10px;
-
-
-    }
+#last button {
+    margin-left:-10px;
 }
 
-
-
-
+.modal-body form {
+    margin-left: 0;
+}
